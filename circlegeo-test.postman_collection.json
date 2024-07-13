@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "094728c7-a88f-40dd-8c8c-7d8e573b3784",
+		"name": "circlegeo-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3872320"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"full_name\": \"Tama Seller\",\n\t\"address\": \"JL. Tama raya\",\n\t\"email\": \"tama@gmail.com\",\n\t\"password\": \"password\",\n\t\"role\": \"Seller\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"mayercustomer@mail.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTIwZDZlNjNiMDRlZTQ0YjhhMzkyMyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzIwODY3NTE2LCJleHAiOjE3MjA4NzExMTZ9.luXdsccccq9A9d8lJW8mqSgXiW93JKH_Dr0rU37aZnU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"66925cce4ce1e4b73e075e70\",\n    \"store_name\": \"Toko Tama\",\n    \"address\": \"JL. Lumpur 1\",\n    \"location\": {\n        \"longitude\": 106.810000,\n        \"latitude\": -6.220000\n    },\n    \"products\": [\n        {\n            \"name\": \"Rinso Cair 30 ml\",\n            \"price\": 20000\n        },\n        {\n            \"name\": \"Rinso Saset\",\n            \"price\": 1000\n        },\n        {\n            \"name\": \"Sabun batang Lux\",\n            \"price\": 2000\n        },\n        {\n            \"name\": \"Liveboy\",\n            \"price\": 2500\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/stores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTI0N2VjNWNjZmU0ZGEyZTQwOTBmMyIsImVtYWlsIjoicmF5aGFuY3VzdG9tZXJAbWFpbC5jb20iLCJyb2xlIjoiQ3VzdG9tZXIiLCJpYXQiOjE3MjA4NjQ1ODIsImV4cCI6MTcyMDg2ODE4Mn0.V1k7Rnv-EKcdRV3KnXNZfKBoK-pesXc9BT9ZZ4fVHBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/stores/nears",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"nears"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
